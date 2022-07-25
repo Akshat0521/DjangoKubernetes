@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: djangokub-deployment
+
+  labels:
+
+    app: djangokub
+
+spec:
+
+  replicas: 2
+
+  selector:
+
+    matchLabels:
+
+      app: djangokub
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: djangokub
+
+    spec:
+
+      containers:
+
+      - name: djangokub
+
+        image: djangokub:1.0
+
+        ports:
+
+        - containerPort: 8000
+          
